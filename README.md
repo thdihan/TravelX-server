@@ -1,6 +1,6 @@
-# Car Wash Booking System - Backend
+# TravelX - Server
 
--   About: This is a backend part of a Car Washing Booking system
+-   About: This is a backend part of a TravelX
 -   Language and Frameworks: Typescript + Express JS
 
 ## How to install and Run?
