@@ -11,6 +11,7 @@ export interface TUser {
     role: 'admin' | 'user';
     address: string;
     profilePhoto?: string;
+    dob?: string;
 }
 
 export type TUserWithId = TUser & { _id: Types.ObjectId };

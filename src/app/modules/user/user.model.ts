@@ -37,6 +37,10 @@ const userSchema = new Schema<TUser>(
         profilePhoto: {
             type: String,
         },
+        dob: {
+            type: String,
+            required: true,
+        },
     },
     {
         timestamps: true,
