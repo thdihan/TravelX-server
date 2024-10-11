@@ -10,6 +10,7 @@ export interface TUser {
     phone: string;
     role: 'admin' | 'user';
     address: string;
+    profilePhoto?: string;
 }
 
 export type TUserWithId = TUser & { _id: Types.ObjectId };

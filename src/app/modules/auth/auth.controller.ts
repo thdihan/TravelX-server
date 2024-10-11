@@ -13,6 +13,8 @@ const signup = catchAsync(async (req, res) => {
 
     const result = await AuthService.createUserIntoDB(userPayload);
 
+    console.log('result', result);
+
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,

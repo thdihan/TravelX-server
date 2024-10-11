@@ -29,11 +29,17 @@ const loginUserFromDB = async (payload: TLoginUser) => {
 
     //create token and sent to the  client
     type TJwtPayload = {
+        name?: string;
+        phone?: string;
         email?: string;
+        profilePhoto?: string;
         role?: string;
         id?: Types.ObjectId;
     };
     const jwtPayload: TJwtPayload = {
+        name: user.name,
+        phone: user.phone,
+        profilePhoto: user.profilePhoto,
         email: user.email,
         role: user.role,
         id: user?._id,
