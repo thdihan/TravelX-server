@@ -12,7 +12,7 @@ app.use(
     cors({
         origin: [
             'https://car-wash-booking-system-client-five.vercel.app',
-            'http://localhost:5173',
+            'http://localhost:3000',
         ],
         credentials: true,
     }),

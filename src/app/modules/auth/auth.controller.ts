@@ -2,9 +2,16 @@ import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { AuthService } from './auth.service';
+import { TUser } from '../user/user.interface';
 
+// Signup Controller
 const signup = catchAsync(async (req, res) => {
-    const result = await AuthService.createUserIntoDB(req.body);
+    const userPayload: TUser = { ...req.body };
+
+    // set user role to 'user' by default
+    userPayload.role = 'user';
+
+    const result = await AuthService.createUserIntoDB(userPayload);
 
     sendResponse(res, {
         statusCode: httpStatus.OK,
