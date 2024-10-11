@@ -18,6 +18,7 @@ const getPersonalData = catchAsync(async (req: Request, res: Response) => {
 
 const updateProfile = catchAsync(async (req: Request, res: Response) => {
     const { id, payload } = req.body;
+    console.log('UPDATE PROFILE', id, payload);
 
     const result = await UserService.updateProfileIntoDB({ id, payload });
 

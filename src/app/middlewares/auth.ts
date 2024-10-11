@@ -21,10 +21,10 @@ const auth = (...requiredRoles: TUserRole[]) => {
                     'You have no access to this route',
                 );
             }
-            const token = tokenWithBearer.split(' ')[1];
+
             // checking if the given token is valid
             const decoded = jwt.verify(
-                token,
+                tokenWithBearer,
                 config.jwt_access_secret as string,
             ) as JwtPayload;
 

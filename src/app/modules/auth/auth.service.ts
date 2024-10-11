@@ -34,7 +34,9 @@ const loginUserFromDB = async (payload: TLoginUser) => {
         email?: string;
         profilePhoto?: string;
         role?: string;
-        id?: Types.ObjectId;
+        dob?: string;
+        _id?: Types.ObjectId;
+        address?: string;
     };
     const jwtPayload: TJwtPayload = {
         name: user.name,
@@ -42,7 +44,9 @@ const loginUserFromDB = async (payload: TLoginUser) => {
         profilePhoto: user.profilePhoto,
         email: user.email,
         role: user.role,
-        id: user?._id,
+        dob: user.dob,
+        _id: user?._id,
+        address: user.address,
     };
     // console.log('jwtPayload', jwtPayload);
 
