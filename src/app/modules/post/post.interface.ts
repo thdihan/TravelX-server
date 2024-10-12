@@ -1,3 +1,5 @@
+import { TVotes } from '../votes/votes.interface';
+
 export type TPost = {
     title: string;
     content: string;
@@ -5,4 +7,9 @@ export type TPost = {
     user: string;
     images?: string[];
     isPremium: boolean;
+};
+
+export type TSinglePost = TPost & {
+    upVotes?: TVotes[];
+    downVotes?: TVotes[];
 };

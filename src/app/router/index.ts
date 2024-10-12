@@ -4,6 +4,7 @@ import { AuthRoutes } from '../modules/auth/auth.route';
 import { UserRoutes } from '../modules/user/user.route';
 import { CategoryRoutes } from '../modules/category/create.route';
 import { PostRoutes } from '../modules/post/post.route';
+import { VotesRoute } from '../modules/votes/votes.route';
 
 const router = Router();
 
@@ -23,6 +24,10 @@ const moduleRoutes = [
     {
         path: '/post',
         route: PostRoutes,
+    },
+    {
+        path: '/vote',
+        route: VotesRoute,
     },
 ];
 
