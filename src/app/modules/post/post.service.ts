@@ -18,7 +18,14 @@ const getPostsFromDB = async (options: Partial<TPost>) => {
     return posts;
 };
 
+const getSinglePostFromDB = async (id: string) => {
+    const post = await PostModel.findById(id).populate('user category');
+
+    return post;
+};
+
 export const PostServices = {
     createPostIntoDB,
     getPostsFromDB,
+    getSinglePostFromDB,
 };

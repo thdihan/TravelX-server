@@ -36,7 +36,19 @@ const getPosts = catchAsync(async (req, res) => {
     });
 });
 
+const getSinglePost = catchAsync(async (req, res) => {
+    const post = await PostServices.getSinglePostFromDB(req.params.id);
+
+    sendResponse(res, {
+        success: true,
+        statusCode: httpStatus.OK,
+        message: 'Post fetched successfully',
+        data: post,
+    });
+});
+
 export const PostController = {
     createPost,
     getPosts,
+    getSinglePost,
 };
