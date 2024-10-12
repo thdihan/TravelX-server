@@ -13,7 +13,14 @@ const getCommentsFromDB = async (postId: string) => {
     return comments;
 };
 
+const deleteCommentFromDB = async (commentId: string) => {
+    await CommentModel.findByIdAndDelete(commentId);
+
+    return;
+};
+
 export const CommentService = {
     createCommentIntoDB,
     getCommentsFromDB,
+    deleteCommentFromDB,
 };

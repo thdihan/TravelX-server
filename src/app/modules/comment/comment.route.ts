@@ -8,7 +8,7 @@ router.post('/', CommentController.createComment);
 
 // router.put('/update', CommentController.updateComment);
 
-// router.delete('/delete', CommentController.deleteComment);
+router.delete('/delete/:commentId', CommentController.deleteComment);
 
 router.get('/:postId', CommentController.getComments);
 
