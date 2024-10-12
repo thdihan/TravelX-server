@@ -12,6 +12,13 @@ const createPostIntoDB = async (post: TPost, images: TImageFiles) => {
     return result;
 };
 
+const getPostsFromDB = async (options: Partial<TPost>) => {
+    const posts = await PostModel.find(options);
+
+    return posts;
+};
+
 export const PostServices = {
     createPostIntoDB,
+    getPostsFromDB,
 };

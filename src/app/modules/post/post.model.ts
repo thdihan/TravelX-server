@@ -13,6 +13,7 @@ const PostSchema = new Schema<TPost>({
     category: {
         type: String,
         required: true,
+        ref: 'Category',
     },
     user: {
         type: String,
