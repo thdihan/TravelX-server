@@ -13,7 +13,7 @@ const createPostIntoDB = async (post: TPost, images: TImageFiles) => {
 };
 
 const getPostsFromDB = async (options: Partial<TPost>) => {
-    const posts = await PostModel.find(options);
+    const posts = await PostModel.find(options).populate('user category');
 
     return posts;
 };

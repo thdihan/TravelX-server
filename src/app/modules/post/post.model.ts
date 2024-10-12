@@ -18,6 +18,7 @@ const PostSchema = new Schema<TPost>({
     user: {
         type: String,
         required: true,
+        ref: 'User',
     },
     images: {
         type: [String],
