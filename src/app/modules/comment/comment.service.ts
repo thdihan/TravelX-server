@@ -1,3 +1,4 @@
+import { TComment } from './comment.interface';
 import { CommentModel } from './comment.model';
 
 const createCommentIntoDB = async (comment: Comment) => {
@@ -19,8 +20,28 @@ const deleteCommentFromDB = async (commentId: string) => {
     return;
 };
 
+const updateCommentIntoDB = async ({
+    commentId,
+    comment,
+}: {
+    commentId: string;
+    comment: TComment;
+}) => {
+    console.log(commentId);
+    const updatedComment = await CommentModel.findByIdAndUpdate(
+        commentId,
+        comment,
+        { new: true },
+    );
+
+    console.log(updatedComment);
+
+    return updatedComment;
+};
+
 export const CommentService = {
     createCommentIntoDB,
     getCommentsFromDB,
     deleteCommentFromDB,
+    updateCommentIntoDB,
 };

@@ -39,8 +39,26 @@ const deleteComment = catchAsync(async (req, res) => {
     });
 });
 
+const updateComment = catchAsync(async (req, res) => {
+    const { commentId } = req.params;
+    console.log(req.body);
+    console.log(commentId);
+    const result = await CommentService.updateCommentIntoDB({
+        commentId: commentId as string,
+        comment: req.body,
+    });
+
+    sendResponse(res, {
+        success: true,
+        statusCode: httpStatus.OK,
+        message: 'Comment updated successfully',
+        data: result,
+    });
+});
+
 export const CommentController = {
     createComment,
     getComments,
     deleteComment,
+    updateComment,
 };
