@@ -6,6 +6,7 @@ import { CategoryRoutes } from '../modules/category/create.route';
 import { PostRoutes } from '../modules/post/post.route';
 import { VotesRoute } from '../modules/votes/votes.route';
 import { CommentRoute } from '../modules/comment/comment.route';
+import { FollowRoutes } from '../modules/follow/follow.route';
 
 const router = Router();
 
@@ -31,6 +32,7 @@ const moduleRoutes = [
         route: VotesRoute,
     },
     { path: '/comment', route: CommentRoute },
+    { path: '/follow', route: FollowRoutes },
 ];
 
 moduleRoutes.forEach((route) => router.use(route.path, route.route));
