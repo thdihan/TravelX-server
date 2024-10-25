@@ -18,8 +18,11 @@ const follow = catchAsync(async (req, res) => {
 });
 
 const unfollow = catchAsync(async (req, res) => {
-    const { userId, followId } = req.query;
-    await FollowService.unfollowSomebody(userId as string, followId as string);
+    const { userId, followerId } = req.query;
+    await FollowService.unfollowSomebody(
+        userId as string,
+        followerId as string,
+    );
 
     sendResponse(res, {
         success: true,
