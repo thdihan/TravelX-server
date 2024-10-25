@@ -11,15 +11,13 @@ const unfollowSomebody = async (userId: string, followerId: string) => {
 };
 
 const getFollowing = async (userId: string) => {
-    const followers = await FollowModel.find({ userId }).populate(
-        'userId followId',
-    );
+    const followers = await FollowModel.find({ userId }).populate('followerId');
     return followers;
 };
 
 const getFollowers = async (followId: string) => {
     const followers = await FollowModel.find({ followId }).populate(
-        'userId followId',
+        'userId followerId',
     );
     return followers;
 };
