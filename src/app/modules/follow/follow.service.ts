@@ -15,10 +15,8 @@ const getFollowing = async (userId: string) => {
     return followers;
 };
 
-const getFollowers = async (followId: string) => {
-    const followers = await FollowModel.find({ followId }).populate(
-        'userId followerId',
-    );
+const getFollowers = async (followerId: string) => {
+    const followers = await FollowModel.find({ followerId }).populate('userId');
     return followers;
 };
 

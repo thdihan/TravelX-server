@@ -45,6 +45,7 @@ const getFollowing = catchAsync(async (req, res) => {
 });
 
 const getFollowers = catchAsync(async (req, res) => {
+    console.log(req.params);
     const { followId } = req.params;
     const followers = await FollowService.getFollowers(followId as string);
 
