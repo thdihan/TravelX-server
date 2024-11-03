@@ -11,6 +11,7 @@ const validateImageFileRequest = (
             const parsedFile = await schema.parseAsync({
                 files: req.files,
             });
+            console.log('IMAGE VALIDATION==');
 
             req.files = parsedFile.files;
 

@@ -8,9 +8,9 @@ import catchAsync from '../../utils/catchAsync';
 import { TImageFile } from './image.interface';
 
 const uploadImage = catchAsync(async (req: Request, res: Response) => {
-    const result = await ImageUploadServices.uploadImage(
-        req.file as TImageFile,
-    );
+    let result;
+    if (req.file)
+        result = await ImageUploadServices.uploadImage(req.file as TImageFile);
 
     sendResponse(res, {
         success: true,

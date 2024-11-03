@@ -24,8 +24,23 @@ const getSinglePostFromDB = async (id: string) => {
     return post;
 };
 
+const updatePostIntoDB = async (
+    id: string,
+    post: TPost,
+    images: TImageFiles,
+) => {
+    const { itemImages } = images;
+
+    if (itemImages) post.images = itemImages.map((image) => image.path);
+
+    const result = await PostModel.findByIdAndUpdate(id, post, { new: true });
+
+    return result;
+};
+
 export const PostServices = {
     createPostIntoDB,
     getPostsFromDB,
     getSinglePostFromDB,
+    updatePostIntoDB,
 };

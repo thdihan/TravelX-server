@@ -2,7 +2,10 @@ import express from 'express';
 
 import { PostController } from './post.controller';
 import { multerUpload } from '../../config/multer.config';
-import { ImageFilesArrayZodSchema } from '../imageUpload/imageUpload.validation';
+import {
+    ImageFilesArrayZodSchema,
+    ImageFilesUploadZodSchema,
+} from '../imageUpload/imageUpload.validation';
 import validateImageFileRequest from '../../middlewares/validateImageFileRequest';
 import { parseBody } from '../../middlewares/parseBody';
 
@@ -19,5 +22,13 @@ router.post(
 router.get('/', PostController.getPosts);
 
 router.get('/:id', PostController.getSinglePost);
+
+router.put(
+    '/:id',
+    multerUpload.fields([{ name: 'itemImages' }]),
+    validateImageFileRequest(ImageFilesUploadZodSchema),
+    parseBody,
+    PostController.updatePost,
+);
 
 export const PostRoutes = router;
